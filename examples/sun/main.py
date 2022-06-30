@@ -1,11 +1,8 @@
-from astropy.table import Table
-from jux.sun.flares import Preprocessing
+from jux.sun.flares import Flares, read_lc_file
 
-path_to_lc = 'ch2_xsm_20210909_v1_level2.lc'
-table = Table.read(path_to_lc)
+path_to_lc = 'ch2_xsm_20200928_v1_level2.lc'
+time, rate = read_lc_file(path_to_lc)
 
-time = table['TIME']
-rate = table['RATE']
-
-data = Preprocessing(time, rate)
-data.plot_interpolated_data()
+flares = Flares(time, rate)
+flares.identified.plot()
+flares.print_details()

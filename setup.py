@@ -6,10 +6,13 @@ setup(
     description='',
     long_description='',
     author='Astronomy Club, IITK',
+    license='MIT',
     packages=find_packages(),
     install_requires = [
-        'numpy',
+        'astropy',
         'matplotlib',
+        'numpy',
+        'pandas',
         'scipy'
     ]
 )
