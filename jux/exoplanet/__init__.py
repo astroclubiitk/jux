@@ -11,3 +11,6 @@ logging.basicConfig(
     format='%(message)s'
 )
 LOG = logging.getLogger(__name__)
+
+from .astrometry import Star
+from .transit import TransitingExoplanet

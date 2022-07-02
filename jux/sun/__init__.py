@@ -11,3 +11,5 @@ logging.basicConfig(
     format='%(message)s'
 )
 LOG = logging.getLogger(__name__)
+
+from .flares import Flares, read_lc_file

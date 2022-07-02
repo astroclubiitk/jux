@@ -1,5 +1,5 @@
 import pandas as pd
-from jux.exoplanet.astrometry import Star
+from jux.exoplanet import Star
 
 M = 1e30
 

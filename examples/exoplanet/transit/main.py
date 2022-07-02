@@ -1,5 +1,5 @@
 import pandas as pd
-from jux.exoplanet.transit import TransitingExoplanet
+from jux.exoplanet import TransitingExoplanet
 
 R = 7e8
 
