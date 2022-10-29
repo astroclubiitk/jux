@@ -1,17 +1,10 @@
 # JUX
 
-<div style="display:flex;">
-    <div>
-        This project is concerned with processing and identification of features present in astronomical light data, often referred to as lightcurve data. It was created in response to 2 ocassions:
-        <ul>
-            <li>ISRO Problem Statement: Inter-IIT Tech Meet 10.0</li>
-            <li>XUVI: Summer Project, Astronomy Club IITK, 2022</li>
-        </ul>
-    </div>
-    <div style="max-width:120px;margin-left:10px">
-        <img src="./assets/logo.jpg" />
-    </div>
-</div>
+<img align="right" style="padding-left: 20px" width="190" height="auto" src="./assets/logo.jpg">
+
+This project is concerned with processing and identification of features present in astronomical light data, often referred to as lightcurve data. It was created in response to 2 ocassions:
+- ISRO Problem Statement: Inter-IIT Tech Meet 10.0
+- XUVI: Summer Project, Astronomy Club IITK, 2022    
 
 ## How to install it?
 ```sh
