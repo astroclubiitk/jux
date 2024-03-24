@@ -1,10 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class TransitingExoplanet():
+
+class TransitingExoplanet:
     """
     Class that accepts time, relative brightness and radius of the host star.
     """
+
     def __init__(self, time, fraw, radius_star):
         self.__time = np.array(time)
         self.__fraw = np.array(fraw)
@@ -29,21 +31,23 @@ class TransitingExoplanet():
         self.__calc_orbital_period()
         self.__calc_orbital_period()
         self.__calc_transit_duration()
-    
+
     def __find_minimas(self):
-        for i in range(1, len(self.fcor)-1):
-            if (self.fcor[i-1]>self.fcor[i]) and (self.fcor[i]<self.fcor[i+1]):
+        for i in range(1, len(self.fcor) - 1):
+            if (self.fcor[i - 1] > self.fcor[i]) and (self.fcor[i] < self.fcor[i + 1]):
                 self.__minimas.append(i)
 
     def __calc_radius(self):
-        depths = np.array([1-self.fcor[i] for i in self.__minimas])
+        depths = np.array([1 - self.fcor[i] for i in self.__minimas])
         depth = np.average(depths)
         self.radius = self.__radius_star * np.sqrt(depth)
 
     def __calc_orbital_period(self):
         transit_days = []
         for i in range(1, len(self.__minimas)):
-            transit_days.append(self.__time[self.__minimas[i]] - self.__time[self.__minimas[i-1]])
+            transit_days.append(
+                self.__time[self.__minimas[i]] - self.__time[self.__minimas[i - 1]]
+            )
         transit_days = np.array(transit_days)
         self.orbital_period = np.average(transit_days)
 
@@ -52,9 +56,9 @@ class TransitingExoplanet():
         __ending = []
         __duration = []
         for i in range(1, len(self.fcor)):
-            if (self.fcor[i]<1) and (self.fcor[i-1]==1):
-                __starting.append(i-1)
-            elif (self.fcor[i]==1) and (self.fcor[i-1]<1):
+            if (self.fcor[i] < 1) and (self.fcor[i - 1] == 1):
+                __starting.append(i - 1)
+            elif (self.fcor[i] == 1) and (self.fcor[i - 1] < 1):
                 __ending.append(i)
         for i in range(len(__starting)):
             __duration.append(self.__time[__ending[i]] - self.__time[__starting[i]])
@@ -66,9 +70,9 @@ class TransitingExoplanet():
         """
         plt.figure(figsize=(30, 10))
         plt.plot(self.__time, self.__fraw)
-        plt.title('Exoplanet\'s parent star raw brightness')
-        plt.xlabel('Time (in days)')
-        plt.ylabel('Relative brightness')
+        plt.title("Exoplanet's parent star raw brightness")
+        plt.xlabel("Time (in days)")
+        plt.ylabel("Relative brightness")
         plt.grid()
         plt.show()
 
@@ -78,8 +82,8 @@ class TransitingExoplanet():
         """
         plt.figure(figsize=(30, 10))
         plt.plot(self.__time, self.fcor)
-        plt.title('Exoplanet\'s parent star corrected brightness')
-        plt.xlabel('Time (in days)')
-        plt.ylabel('Relative brightness')
+        plt.title("Exoplanet's parent star corrected brightness")
+        plt.xlabel("Time (in days)")
+        plt.ylabel("Relative brightness")
         plt.grid()
         plt.show()

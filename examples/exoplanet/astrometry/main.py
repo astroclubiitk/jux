@@ -3,7 +3,7 @@ from jux.exoplanet import Star
 
 M = 1e30
 
-df = pd.read_csv('astrometry_data.csv')
+df = pd.read_csv("astrometry_data.csv")
 time = df[df.columns[0]]
 vel = df[df.columns[1]]
 
